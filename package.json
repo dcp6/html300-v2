@@ -1,0 +1,19 @@
+{
+  "name": "html300-v2",
+  "version": "0.0.1",
+  "description": "a package to work on assignments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcp6/html300-v2.git"
+  },
+  "author": "Can Powell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcp6/html300-v2/issues"
+  },
+  "homepage": "https://github.com/dcp6/html300-v2#readme"
+}
