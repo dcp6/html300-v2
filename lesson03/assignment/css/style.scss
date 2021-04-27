@@ -3,4 +3,171 @@
 @import 'settings.variables';
 @import 'settings.responsive';
 @import 'components.content';
+//I used sass variable delarations to make it easy to adjust multiple features across the entire page.
+$font-stack: Helvetica, sans-serif;
+$card-box-border-gray: rgb(226, 226, 226);
+$text-gray: rgb(78, 78, 78);
+$max-width-value-phone: 475px;
+$max-width-value-tiny: 200px;
+*   {
+    box-sizing:border-box;
+}
+main {
+    margin: 0px auto;
+}
+//Flexbox is used extensively to position elements, starting with the first box. I also used my declared variable (fontstack).
+#primary-card-box {
+    max-width:100%;
+    border:35px solid $card-box-border-gray;
+    font-family: $font-stack;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-around;
+}
+//Again, flexbox is used. 
+#headshot-holder {
+        height:60%;
+        color: $text-gray;
+        font-family: $font-stack;
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items:center;
+        font-size:1.4rem;
+        img {
+            width: 82%;
+            margin-top: 10%;
+            border-radius:50%;
+        }
+        div {
+        h3 {
+            font-size: 100%;
+            color: $text-gray;
+        }    
+        h4 {
+            color: $text-gray;
+            margin-top:-.7rem;
+            font-style: italic;
+            font-size:67%;
+        }
+        }
+    }
+//Again we see flexbox.
+#info-holder {
+    background-color:rgb(228, 227, 227);
+    color:$text-gray;
+    height: 82.5%;
+    width:82.5%;
+    margin-right: 3%;
+    display:flex;
+    flex-direction:column;
+    font-family:$font-stack;
 
+    
+}
+#info-para-holder {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    
+    padding:10px;
+    p {
+        margin:8px;
+        font-size:1rem;
+    }
+    strong {
+        font-size:1.1rem;
+    }
+    div {
+        margin:15px 10px;
+    }
+}
+.bold-text-info-holder {
+    font-style:bold;
+}
+#linked-in-para {
+    display:flex;
+    flex-direction:column;
+}
+#linked-in-para-div {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    padding-bottom:10px;
+    img {
+        height: 30px;
+        display:inline;
+    }
+    #ask-me-text {
+        display:none;
+    }
+}
+.code-Languages-Holder {
+    word-break:break-all;
+}
+//This media query changes the card to suit a phone.
+@media ($mobile){
+    main {
+        margin: 0px auto;
+    }
+//This piece of code moves the two primary boxes into a vertical/column stack to better suit a device that is longer than it is wide.
+    #primary-card-box {
+        flex-direction:column;
+        font-size: .8rem;
+        width:100%;
+        margin-bottom:5%;
+    }
+
+    #info-holder {
+        margin-bottom:10%;
+    }
+    #info-para-holder {
+        p {
+            font-size:.6rem;
+        }
+        strong {
+            font-size:.75rem;
+        }
+    }
+    #linked-in-para {
+        p {
+            font-size: .3rem;
+        }
+        
+    }
+}
+//This media query is for very small screens. Some features needed to be adjusted.
+@media (max-width: $max-width-value-tiny){
+
+
+    #primary-card-box {
+        min-height:100%;
+        font-size: .4rem;
+        border: 10px solid $card-box-border-gray;
+    }
+    #headshot-text-holder {
+        align-items:center;
+    }
+    #headshot-holder {
+        font-size:1rem;
+
+    }
+    #info-holder {
+        font-size:80%;
+        margin-right:0%;
+    }
+    #headshot-text-holder {
+        margin: 0px 20px;
+    }
+//This piece of code removes the linked in email address, as it is too long for a 200px screen.
+    #linked-in-para-div {
+    #linked-in-para {
+        display:none;
+    }
+//This piece of code makes the text "ask me" visible as it fits the dimensions of the 200px screens better.
+  #ask-me-text {
+      display:inline-block;
+  }
+}
+}

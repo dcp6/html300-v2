@@ -1,4 +1,4 @@
-[
+const cardData = [
     {
       "name": "Paolo Maldini",
       "jobTitle": "Front End Developer",
@@ -52,3 +52,37 @@
       ]
     }
    ]
+let cardDataInsert = cardData.map(function(element){
+      return `
+      <div id="primary-card-box">
+      <section id="headshot-holder">
+      <img id="headshot" src="./img/headshot.jpg" alt="picture of headshot">
+      <div id="headshot-text-holder">
+      <h3>${element.name}</h3>
+      <h4>${element.jobTitle}</h4>
+      </div>
+
+      </section>
+      <section id="info-holder">
+      <section id="info-para-holder">
+      <p><strong>Company:
+      </strong>${element.company}</p>
+      <p><strong>Experience:
+      </strong>${element.experience}</p>
+      <p><strong>School:
+      </strong>${element.school}</p>
+      <p><strong>Major:
+      </strong>${element.major}</p>
+      <p><strong>Email:</strong>
+      ${element.email} </p>
+      <p class="code-Languages-Holder"><strong>Languages:</strong>
+      ${element.codeLanguages}
+      <div id="linked-in-para-div">
+      <img src="./img/linkedin.svg" alt="linkedin logo"><p id="linked-in-para">${element.linkedInUrl}</p><p id="ask-me-text">Ask me!</p>
+      </div>
+      </section>
+      </section>
+      </div>
+      `
+});
+document.querySelector('main').innerHTML = cardDataInsert;
