@@ -52,6 +52,7 @@ const cardData = [
       ]
     }
    ]
+   //this block of code is the template upon which the arrays will be input
 let cardDataInsert = cardData.map(function(element){
       return `
       <div id="primary-card-box">
@@ -85,4 +86,5 @@ let cardDataInsert = cardData.map(function(element){
       </div>
       `
 });
+//this simply sets the function as the inner html of the file
 document.querySelector('main').innerHTML = cardDataInsert;
