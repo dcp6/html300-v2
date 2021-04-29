@@ -32,7 +32,6 @@ main {
         font-family: $font-stack;
         display:flex;
         flex-direction:column;
-        justify-content: center;
         align-items:center;
         font-size:1.4rem;
         img {
@@ -107,7 +106,7 @@ main {
     word-break:break-all;
 }
 //This media query changes the card to suit a phone.
-@media ($mobile){
+@media (max-width: $max-width-value-phone){
     main {
         margin: 0px auto;
     }
