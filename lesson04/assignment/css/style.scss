@@ -1,0 +1,11 @@
+@import 'nav';
+@import 'header';
+$font-stack: Helvetica, Arial, sans-serif;
+
+*{
+    box-sizing:border-box;
+}
+
+body {
+    font-family:$font-stack;
+}
