@@ -1,11 +1,27 @@
 @import 'nav';
 @import 'header';
-$font-stack: Helvetica, Arial, sans-serif;
+@import 'main-styles';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+$font-stack: 'Roboto', Arial, sans-serif;
 
 *{
     box-sizing:border-box;
 }
-
+html {
+    height:100%;
+}
 body {
+    height:100%;
+    margin:0;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
     font-family:$font-stack;
+    background: rgb(52,195,34);
+    background: linear-gradient(0deg, rgba(52,195,34,1) 22%, rgba(20,76,221,1) 87%);
+}
+.primary-wrapper {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap:1rem;
+    grid-template-rows: repeat(6, 6.25rem);
 }

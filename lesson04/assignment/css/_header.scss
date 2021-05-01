@@ -1,0 +1,23 @@
+$background-color-main-page: rgb(92, 90, 90);
+$hiker-color:white;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+$font-stack: 'Roboto', Arial, sans-serif;
+
+
+.main-header {
+    display:flex;
+    justify-content:space-between;
+    height:7rem;
+    color:white;
+    background:$background-color-main-page;
+    font-family:$font-stack;
+    font-style:italic;
+    align-items:center;
+    &__home-button {
+        color:$hiker-color;
+    }  
+        &__hiking-icon {
+        font-size:3rem;
+        padding-left:1rem;
+    }
+}

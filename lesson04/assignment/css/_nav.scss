@@ -1,7 +1,11 @@
-$menu-item-color: rgb(28, 170, 28);
-$hamburger-menu-color: black;
+$menu-item-color: white;
+$hamburger-menu-color: white;
 $hamburger-menu-color-change:white;
-$hamburger-menu-link-color:white;
+$hamburger-menu-link-color:#49cfae;;
+$menu-background-color:rgb(92, 90, 90);
+$toggle-top-location:1rem;
+$toggle-left-location:0.5rem;
+
 //https://codepen.io/erikterwan/pen/EVzeRP Eric Terwan
 //
 .nav-bar {
@@ -10,9 +14,9 @@ $hamburger-menu-link-color:white;
     &__main-holder{
     //A checkbox is used to detect when the menu is selected. This places the check box, defines its dimensions, and sets its z-index on top so it can be clicked and its opacity at 0.
         &__check-box {
-        top:1rem;
+        top:$toggle-top-location;
         position:absolute;
-        left: 0.5rem;
+        left:$toggle-left-location;
         z-index:3;
         height:5.4rem;
         width:4.6rem;
@@ -41,8 +45,8 @@ $hamburger-menu-link-color:white;
         //defines the hamburger
         &__hamburger {
         position:absolute;
-        top:1.5rem;
-        left: 0.75rem;
+        top: ($toggle-top-location+0.5rem);
+        left:($toggle-left-location+0.25rem);
         z-index:2;
             &__lines {
             display:block;
@@ -58,17 +62,18 @@ $hamburger-menu-link-color:white;
     &__menu-item-holder {
         position:absolute;
         transition: 0.5s;
-       margin:-0.625rem 0 0 -.5rem;
-       padding-top:5rem;
+       margin:(-1rem+$toggle-top-location) 0 0 -.5rem;
+       padding-top:6rem;
        padding-left:1rem;
         transform: translate(-15rem, 0rem);
-        background:black;
+        background:$menu-background-color;
         transform: 1s cubic-bezier(0.77,0.2,0.05,1.0);
         color:$menu-item-color;
         text-decoration:none;
     &__nav-options {
         padding:1rem;
         list-style: none;
+        display:block;
     &__link:hover {
         color: $hamburger-menu-link-color;
     }
