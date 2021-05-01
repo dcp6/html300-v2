@@ -86,7 +86,7 @@ $max-width-phone:29.75rem;
     .nav-bar {
         &__main-holder {
             &__check-box {
-                height:2.7rem;
+                height:2.4rem;
                 width:2.3rem;
                 &:checked ~ div span {
                     transform: rotate(45deg) translate(-.52rem, -.52rem);
