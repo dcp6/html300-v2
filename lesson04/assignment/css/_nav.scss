@@ -5,6 +5,7 @@ $hamburger-menu-link-color:#49cfae;;
 $menu-background-color:rgb(92, 90, 90);
 $toggle-top-location:1rem;
 $toggle-left-location:0.5rem;
+$max-width-phone:29.75rem; 
 
 //https://codepen.io/erikterwan/pen/EVzeRP Eric Terwan
 //
@@ -63,15 +64,14 @@ $toggle-left-location:0.5rem;
         position:absolute;
         transition: 0.5s;
        margin:(-1rem+$toggle-top-location) 0 0 -.5rem;
-       padding-top:6rem;
-       padding-left:1rem;
+       padding:6rem 0rem 1rem 1rem;
         transform: translate(-15rem, 0rem);
         background:$menu-background-color;
         transform: 1s cubic-bezier(0.77,0.2,0.05,1.0);
         color:$menu-item-color;
         text-decoration:none;
     &__nav-options {
-        padding:1rem;
+        padding:.31rem;
         list-style: none;
         display:block;
     &__link:hover {
@@ -82,3 +82,22 @@ $toggle-left-location:0.5rem;
     }//menu-item-holder end
 }
 }//nav-bar end
+@media (max-width:$max-width-phone) {
+    .nav-bar {
+        &__main-holder {
+            &__check-box {
+                height:2.7rem;
+                width:2.3rem;
+                &:checked ~ div span {
+                    transform: rotate(45deg) translate(-.52rem, -.52rem);
+                }
+            }
+        &__hamburger {
+            &__lines {
+                height:.5rem;
+                width:2rem;
+            }
+        }
+        }
+    }
+}

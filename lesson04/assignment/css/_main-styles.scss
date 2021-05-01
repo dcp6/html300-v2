@@ -1,18 +1,62 @@
+$primary-font-color: white;
+$max-width-phone:29.75rem; 
+.primary-wrapper{
+    background-image:url(../images/xunatunuch.JPG);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    
+    &__main-header-container{
 
-
-.main {
-
-    background:white;
-    grid-column: 2 / 9;
-    grid-row:2/6;
-    &__welcome-line{
-            height: 5rem;
-            grid-row: 1;
-            grid-column:3 / 6;
+        grid-column: 2 / 11;
+        grid-row:2/6;   
+        height: auto;    
+        
+        &__welcome-line{
+            color:$primary-font-color;
             display:flex;
             justify-content:center;
             font-size:2rem;
-        
+            }//welcome line end
+            }//main header container end
+    
+    &__intro-para {
+            display:flex;
+            justify-content:center;
+    }
+    &__main-intro-text-holder {
+        color:$primary-font-color;
+        grid-column:4/9;
+        grid-row:8/12;
+        height:40rem;
+    &__intro-para {
+        font-size:1rem;
     }
 
-}//main end
+    }
+    &__blog-entry {
+        color:$primary-font-color;
+        grid-column:4/9;
+        grid-row:9;
+    }
+}
+@media (max-width: $max-width-phone)
+ {
+        .primary-wrapper {
+            &__main-header-container {
+                grid-column:1/12;
+                grid-row:1/7;
+                &__welcome-line {
+                    font-size:1.5rem;
+                }
+            }
+            &__main-intro-text-holder {
+                grid-column:1/13;
+                grid-row:7;
+            
+            }
+            &__blog-entry {
+                grid-row:7;
+            }
+
+        }
+ }
