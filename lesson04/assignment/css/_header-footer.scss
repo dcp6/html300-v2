@@ -6,6 +6,7 @@ $font-stack: 'Roboto', Arial, sans-serif;
 $max-width-phone:29.75rem; 
 
 
+ 
 .main-footer {
     display:flex;
     justify-content:space-between;
@@ -17,8 +18,6 @@ $max-width-phone:29.75rem;
     justify-content:flex-start;
     font-size:1rem;
     height:5rem;
-}
-.main-footer {
     &__primary-list {
         list-style-type:none;
         display:flex;
@@ -26,6 +25,9 @@ $max-width-phone:29.75rem;
         width:100%;
         &__list-item {
             padding-right:1rem;
+        &__home-link {
+            color:white;
+        }
         }
     }
 
@@ -34,9 +36,11 @@ $max-width-phone:29.75rem;
     .main-footer {
         display:flex;
         justify-content: flex-end;
-        padding-left:5rem;
-        font-size:1rem;
+        font-size:.5rem;
+        height:3rem;
+  
     }
+    
  
 }
  
