@@ -1,11 +1,26 @@
 $primary-font-color: white;
 $max-width-phone:29.75rem; 
-.primary-wrapper{
-    &__main-header-container{
+$max-width-ipad:48rem;
+$max-width-ipad-pro:64rem;
+.primary-wrapper {
+    &__main-header-image-holder {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        grid-column:2/12;
+        grid-row:7/8;
+        &__img {
+            height:25rem;
+            padding:2rem; d
+         &:last-child() {
+             padding-right:0;
+         }   
+        }
+    }
+    &__main-header-welcome-container{
 
         grid-column: 2 / 11;
-        grid-row:5/8;   
-        height: auto;    
+        grid-row:8;    
         
         &__welcome-line{
             color:$primary-font-color;
@@ -15,33 +30,60 @@ $max-width-phone:29.75rem;
            
             }//welcome line end
             }//main header container end
-    
+  
     &__intro-para {
             display:flex;
             justify-content:center;
     }
     &__main-intro-text-holder {
         color:$primary-font-color;
-        grid-column:3/10;
-        grid-row:8/12;
-        height:40rem;
+        grid-column:2/12;
+        grid-row:9/12;
     &__intro-para {
         color:$primary-font-color;
         font-size:1.25rem;
     }
-
     }
+    &__blog-entry-holder {
+        grid-column:2/12;
+        grid-row: 12;
     &__blog-entry {
-        color:$primary-font-color;
-        grid-column:3/9;
-        grid-row:9;
+            color:$primary-font-color;
     }
+    }
+  
+}
+@media (max-width: $max-width-ipad-pro) {
+        .primary-wrapper {
+            &__main-header-image-holder {
+                &__img {
+                    &:first-child{
+                        display:none;
+                    }
+                }
+            }
+        }
+}
+@media (max-width: $max-width-ipad)
+{
+        .primary-wrapper {
+            &__main-header-image-holder {
+                &__img {
+                    &:not(:nth-child(3)) {
+                        display:none;
+                    }
+                }
+        }
+}
 }
 @media (max-width: $max-width-phone)
  {
         .primary-wrapper {
+            &__main-header-welcome-container {
+                grid-column:1/13;
+            }
             &__main-header-container {
-                grid-column:1/12;
+                grid-column:1/13;
                 grid-row:7;
                 &__welcome-line {
                     font-size:1.5rem;
@@ -52,9 +94,12 @@ $max-width-phone:29.75rem;
                 grid-row:9;
             
             }
+            &__blog-entry-holder {
+                grid-column:1/13;
+            
             &__blog-entry {
-                grid-row:10;
+                grid-row:12;
             }
-
         }
- }
+        }//end primary wrapper
+}//end max width phone media

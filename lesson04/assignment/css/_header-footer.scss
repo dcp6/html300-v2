@@ -4,12 +4,18 @@ $footer-font-color:white;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
 $font-stack: 'Roboto', Arial, sans-serif;
 $max-width-phone:29.75rem; 
+$max-width-tablet:47.935rem;
 
 
- 
+
+
+
 .main-footer {
+
+    border-top: 3px solid gray;
+    margin-top:5rem;
+    width:100%;
     display:flex;
-    justify-content:space-between;
     color:$footer-font-color;
     background:$footer-background-color;
     font-family:$font-stack;
@@ -32,11 +38,12 @@ $max-width-phone:29.75rem;
     }
 
 }
+
 @media (max-width: $max-width-phone) {
     .main-footer {
         display:flex;
         justify-content: flex-end;
-        font-size:.5rem;
+        font-size:.4rem;
         height:3rem;
   
     }

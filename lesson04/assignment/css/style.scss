@@ -9,17 +9,25 @@ $font-stack: 'Roboto', Arial, sans-serif;
 }
 html {
     height:100%;
+    max-width:100%;
+    overflow-x:hidden;
 }
 body {
-    height:100%;
-    margin:0;
+    max-width:100%;
+    overflow-x:hidden;
     font-family:$font-stack;
-    background-image:url(../images/xunatunuch.JPG);
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+    background-color:black;
+    height:100%;
+    // min-height:62.5rem;
+    // background-image:url(../images/xunatunuch.JPG);
+    // background-repeat:no-repeat;
+    // background-attachment:fixed;
+
 
 }
 .primary-wrapper {
+    padding-right:0;
+    min-height:100%;
     display:grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap:1rem;
