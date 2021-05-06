@@ -9,6 +9,7 @@ $max-width-ipad-pro:64rem;
         justify-content:space-around;
         grid-column:2/12;
         grid-row:7/8;
+        //positions the image section
         &__img {
             height:25rem;
             padding:2rem; d
@@ -59,6 +60,7 @@ $max-width-ipad-pro:64rem;
                 &__img {
                     &:first-child{
                         display:none;
+                        //Hides picture that doesnt fit onto screen. normally size would be a design side thing, in the future I will standardize my image sizes or find a more scalable implementation
                     }
                 }
             }
@@ -72,6 +74,7 @@ $max-width-ipad-pro:64rem;
                     &:not(:nth-child(3)) {
                         display:none;
                     }
+                    //hides the images I don't want to display
                 }
         }
 }
@@ -81,6 +84,7 @@ $max-width-ipad-pro:64rem;
         .primary-wrapper {
             &__main-header-welcome-container {
                 grid-column:1/13;
+                //changes spacing to fit full screen on mobile
             }
             &__main-header-container {
                 grid-column:1/13;
@@ -88,6 +92,7 @@ $max-width-ipad-pro:64rem;
                 &__welcome-line {
                     font-size:1.5rem;
                 }
+                //same as above
             }
             &__main-intro-text-holder {
                 grid-column:1/13;
