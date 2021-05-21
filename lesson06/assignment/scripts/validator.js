@@ -1,3 +1,4 @@
+const { reload } = require("browser-sync");
 
 const formData = document.querySelectorAll('.needs-validation');
 let nameInputValidity = false;
