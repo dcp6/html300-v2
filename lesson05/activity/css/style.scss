@@ -4,3 +4,31 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+
+body {
+    color:white;
+}
+.nav {
+    height:150px;
+    background-color:#00A3AD;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+     &__button   {    
+        border:none;   
+        font-size:24px;
+        background:none;
+        }
+}
+ul {
+
+    list-style-type:none;
+    text-decoration:underline;
+    display:flex;
+    flex-direction:row;
+    align-items:space-between;
+    li {
+       padding-left:2rem;
+       padding-right:2rem;
+    }
+    }
