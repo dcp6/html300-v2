@@ -56,8 +56,14 @@
         <li class="primary-wrapper__aside__list-holder__list-items">Go to the gear page for links!</li>
         </ul>
         <div id="imgGenerator">
+        <template v-if="randomNumber != 8">
         <p class="primary-wrapper__aside__img-header">{{this.productData[randomNumber].itemData[0]}}</p>
-        <img class="primary-wrapper__aside__primary-image" v-bind:src="this.productData[1].itemData[1]" v-bind:id="imgIdentification">
+        <img class="primary-wrapper__aside__primary-image" v-bind:src="this.productData[randomNumber].itemData[1]" v-bind:id="imgIdentification" v-on:click="plusOne">
+        </template>
+        <template v-else>
+        <p>Refresh the page if you wish to cycle through the images again.</p>
+        </template>
+        <p>{{randomNumber}}</p>
         </div>
         </aside>
         <main class="primary-wrapper__main">
@@ -103,11 +109,47 @@
                    {
                    name:"Jacket",
                    itemData: ["DryPoint GTX","./images/drypoint-gtx.jpg"]
+                   },
+                   {
+                   name:"Shirt",
+                   itemData: ["Active Tee","./images/active-tee.jpeg"]
+                   },
+                   {
+                   name:"Underwear",
+                   itemData: ["Fruit of the Loom CoolZone","./images/boxer-briefs.jpeg"]
+                   },
+                   {
+                   name:"Pants",
+                   itemData: ["Outdoor Research Ferrosi","./images/ferrosi.jpeg"]
+                   },
+                   {
+                   name:"Socks",
+                   itemData: ["Darn Tough Full Cushion","./images/darn-tough.jpg"]
+                   },
+                   {
+                   name:"Boots",
+                   itemData: ["Ultra Mid 3 GTX","./images/ultra-mid.jpeg"]
+                   },
+                   {
+                   name:"Sandals",
+                   itemData: ["Cairn Bedrock Sandals","./images/cairn-sandals.jpeg"]
+                   },
+                   {
+                   name:"",
+                   itemData: ["None","None"]
                    }
                  ]
 
             }
-          }
+          },
+          methods: {
+              plusOne() {
+                    this.randomNumber += 1
+
+              }//random number generator
+
+
+          }//method end
         }
         Vue.createApp(imgGenerator).mount('#imgGenerator')
     

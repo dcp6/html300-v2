@@ -135,6 +135,9 @@ body {
         }
     }
 }
+#aside-img {
+    width:15rem;
+}
 
 
 
@@ -195,20 +198,22 @@ body {
         }
         .primary-wrapper {
             &__main {
-                grid-column:5/9;
+                grid-column:2/12;
                 &__report-holder {
                     &__img-holder {
                         &__hiking-img {
-                            width:30rem;
+                            width:38rem;
                         }
                     }
                 }
             }
+            &__aside {
+                display:none;
+            }
         }
+      
 }
-#aside-img {
-    width:15rem;
-}
+
 @media (max-width:$phone-size) {
     .primary-nav {
         display:none;
