@@ -103,6 +103,7 @@ body {
                 padding-bottom:.25rem;
             }
         }
+      
     }
     &__main {
         grid-column:5/11;
@@ -204,6 +205,9 @@ body {
                 }
             }
         }
+}
+#aside-img {
+    width:15rem;
 }
 @media (max-width:$phone-size) {
     .primary-nav {
