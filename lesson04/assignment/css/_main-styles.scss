@@ -1,0 +1,110 @@
+$primary-font-color: white;
+$max-width-phone:29.75rem; 
+$max-width-ipad:48rem;
+$max-width-ipad-pro:64rem;
+.primary-wrapper {
+    &__main-header-image-holder {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        grid-column:2/12;
+        grid-row:7/8;
+        //positions the image section
+        &__img {
+            height:25rem;
+            padding:2rem; d
+         &:last-child() {
+             padding-right:0;
+         }   
+        }
+    }
+    &__main-header-welcome-container{
+
+        grid-column: 2 / 11;
+        grid-row:8;    
+        
+        &__welcome-line{
+            color:$primary-font-color;
+            display:flex;
+            justify-content:center;
+            font-size:2.5rem;
+           
+            }//welcome line end
+            }//main header container end
+  
+    &__intro-para {
+            display:flex;
+            justify-content:center;
+    }
+    &__main-intro-text-holder {
+        color:$primary-font-color;
+        grid-column:2/12;
+        grid-row:9/12;
+    &__intro-para {
+        color:$primary-font-color;
+        font-size:1.25rem;
+    }
+    }
+    &__blog-entry-holder {
+        grid-column:2/12;
+        grid-row: 12;
+    &__blog-entry {
+            color:$primary-font-color;
+    }
+    }
+  
+}
+@media (max-width: $max-width-ipad-pro) {
+        .primary-wrapper {
+            &__main-header-image-holder {
+                &__img {
+                    &:first-child{
+                        display:none;
+                        //Hides picture that doesnt fit onto screen. normally size would be a design side thing, in the future I will standardize my image sizes or find a more scalable implementation
+                    }
+                }
+            }
+        }
+}
+@media (max-width: $max-width-ipad)
+{
+        .primary-wrapper {
+            &__main-header-image-holder {
+                &__img {
+                    &:not(:nth-child(3)) {
+                        display:none;
+                    }
+                    //hides the images I don't want to display
+                }
+        }
+}
+}
+@media (max-width: $max-width-phone)
+ {
+        .primary-wrapper {
+            &__main-header-welcome-container {
+                grid-column:1/13;
+                //changes spacing to fit full screen on mobile
+            }
+            &__main-header-container {
+                grid-column:1/13;
+                grid-row:7;
+                &__welcome-line {
+                    font-size:1.5rem;
+                }
+                //same as above
+            }
+            &__main-intro-text-holder {
+                grid-column:1/13;
+                grid-row:9;
+            
+            }
+            &__blog-entry-holder {
+                grid-column:1/13;
+            
+            &__blog-entry {
+                grid-row:12;
+            }
+        }
+        }//end primary wrapper
+}//end max width phone media

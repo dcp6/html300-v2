@@ -1,0 +1,104 @@
+$menu-item-color: white;
+$hamburger-menu-color: white;
+$hamburger-menu-color-change:white;
+$hamburger-menu-link-color:#49cfae;;
+$menu-background-color:black;
+$toggle-top-location:1rem;
+$toggle-left-location:0.5rem;
+$max-width-phone:29.75rem; 
+$max-width-tablet:47.935rem;
+
+//https://codepen.io/erikterwan/pen/EVzeRP Eric Terwan
+//
+.nav-bar {
+    
+    z-index:3;
+    &__main-holder{
+    //A checkbox is used to detect when the menu is selected. This places the check box, defines its dimensions, and sets its z-index on top so it can be clicked and its opacity at 0.
+        &__check-box {
+        top:$toggle-top-location;
+        position:absolute;
+        left:$toggle-left-location;
+        z-index:3;
+        height:5.4rem;
+        width:4.6rem;
+        cursor:pointer; 
+        opacity:0;
+        //sets the transformation to 0 on the menu when the box is checked
+        &:checked ~ ul {
+            transform:none;
+        }//ul end
+        //moves the hamburger lines
+        &:checked ~ div span {
+            opacity:1;
+            transform:rotate(45deg) translate(-.82rem, -.82rem);
+            background:$hamburger-menu-color-change; 
+            transition:.5s;
+
+        &:nth-last-child(3)   {
+            opacity:0;
+            transform:rotate(0deg);
+        }//middle cross end
+        &:nth-last-child(2) {
+            transform:rotate(-45deg)
+        }
+        }//div span end
+        }
+        //defines the hamburger
+        &__hamburger {
+        position:absolute;
+        top: ($toggle-top-location+0.5rem);
+        left:($toggle-left-location+0.25rem);
+        z-index:2;
+            &__lines {
+            display:block;
+            height:1rem;
+            width:4rem;
+            margin-bottom:0.25rem;
+            background:$hamburger-menu-color;
+            border-radius:5%;
+            }
+            
+        }
+    //positions the menu and sets its transform value that it changes from
+    &__menu-item-holder {
+        position:absolute;
+        transition: 0.5s;
+       margin:(-1rem+$toggle-top-location) 0 0 -.5rem;
+       padding:6rem 0rem 1rem 1rem;
+        transform: translate(-15rem, 0rem);
+        background:$menu-background-color;
+        transform: 1s cubic-bezier(0.77,0.2,0.05,1.0);
+        color:$menu-item-color;
+        text-decoration:none;
+    &__nav-options {
+        padding:.31rem;
+        list-style: none;
+        display:block;
+    &__link:hover {
+        color: $hamburger-menu-link-color;
+    }
+    }
+
+    }//menu-item-holder end
+}
+}//nav-bar end
+@media (max-width:$max-width-phone) {
+    .nav-bar {
+        &__main-holder {
+            &__check-box {
+                height:2.4rem;
+                width:2.3rem;
+                &:checked ~ div span {
+                    transform: rotate(45deg) translate(-.52rem, -.52rem);
+                }
+            }
+        &__hamburger {
+            &__lines {
+                height:.5rem;
+                width:2rem;
+            }
+        }
+        }
+    }
+}
