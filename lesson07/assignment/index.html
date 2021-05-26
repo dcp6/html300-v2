@@ -43,19 +43,14 @@
 
        <div class="primary-wrapper">
         <aside class="primary-wrapper__aside">
-        <h3 class="primary-wrapper__aside__headline">Gear List </h3>
+            <div class="primary-wrapper__aside__gear-images" id="asideGenerator">
+        <h3 class="primary-wrapper__aside__headline">{{listHeader}} </h3>
         <ul class="primary-wrapper__aside__list-holder">
-        <li class="primary-wrapper__aside__list-holder__list-items">Hat: Hood Hats </li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Rain Jacket: REI Drypoint GTX</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Shirt: Costco Active Tee</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Underwear: Fruit of the Loom CoolZone</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Pants: Outdoor Research Ferrosi</li> 
-        <li class="primary-wrapper__aside__list-holder__list-items">Socks: Darn Tough Hiker Full Cushion</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Boots: Salomon X Ultra Mid 3 GTX</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Sandals: Bedrock Cairn Adventure Sandals</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Go to the gear page for links!</li>
+            <li class="primary-wrapper__aside__list-holder__list-items" v-for="gear in gearItemList">{{gear}}</li>
+        <li class="primary-wrapper__aside__list-holder__list-items"></li>
         </ul>
-        <div id="imgGenerator">
+        
+        <h3 class="primary-wrapper__aside__gear-images__headline">{{imgHeader}}</h3>
         <template v-if="randomNumber != 8">
         <p class="primary-wrapper__aside__img-header">{{this.productData[randomNumber].itemData[0]}}</p>
         <img class="primary-wrapper__aside__primary-image" v-bind:src="this.productData[randomNumber].itemData[1]" v-bind:id="imgIdentification" v-on:click="plusOne">
@@ -63,6 +58,7 @@
         <template v-else>
         <p>Refresh the page if you wish to cycle through the images again.</p>
         </template>
+       </p>
         <p>{{randomNumber}}</p>
         </div>
         </aside>
@@ -93,12 +89,14 @@
         </ul>
     </footer>
     <script type=text/javascript>
-          const imgGenerator = {
+          const asideGenerator = {
           data() {
             return {
+              listHeader:"Gear List",  
+              gearItemList:["Hat: Hood Hats","Rain Jacket: REI Drypoint GTX","Shirt: Costco Active Tee","Underwear: Fruit of the Loom CoolZone","Pants: Outdoor Research Ferrosi","Socks: Darn Tough Hiker Full Cushion","Boots: Salomon X Ultra Mid 3 GTX","Sandals: Bedrock Cairn Adventure Sandals","Go to the gear page for more information! Click below to cycle through images."],
               name:"dan",
               imgIdentification:"aside-img",
-              imgHeader:["Hood Hats:Seattle", "REI: DryPoint GTX"],
+              imgHeader:"Gear Images",
               imgSrc:["./images/hood-hat.jpg","./images/drypoint-gtx"],
               randomNumber:0,
               productData: [
@@ -151,7 +149,7 @@
 
           }//method end
         }
-        Vue.createApp(imgGenerator).mount('#imgGenerator')
+        Vue.createApp(asideGenerator).mount('#asideGenerator')
     
     
     </script>

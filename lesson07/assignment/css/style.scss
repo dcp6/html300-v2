@@ -103,7 +103,11 @@ body {
                 padding-bottom:.25rem;
             }
         }
-      
+      &__gear-images {
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+      }
     }
     &__main {
         grid-column:5/11;
@@ -136,7 +140,8 @@ body {
     }
 }
 #aside-img {
-    width:15rem;
+    height:13rem;
+
 }
 
 
