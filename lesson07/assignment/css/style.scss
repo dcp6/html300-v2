@@ -120,6 +120,12 @@ body {
                 display:flex;
                 justify-content:center;
                 color:white;
+                &__weekend-conditonal {
+                    display:flex;
+                    justify-content:center;
+                    color:white;
+                    font-size:2rem;
+                }
             }
         &__date-line {
             color:white;
