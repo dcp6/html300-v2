@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="css/style.css" />
-        <title>Assignment 05 - CSS Grid</title>
+        <title>Lesson 7 Working with Vue</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <script src="https://unpkg.com/vue@next"></script>
 
 
     </head>
@@ -42,26 +43,36 @@
 
        <div class="primary-wrapper">
         <aside class="primary-wrapper__aside">
-        <h3 class="primary-wrapper__aside__headline">Gear List </h3>
+            <div class="primary-wrapper__aside__gear-images" id="asideGenerator">
+        <h3 class="primary-wrapper__aside__headline">{{listHeader}} </h3>
         <ul class="primary-wrapper__aside__list-holder">
-        <li class="primary-wrapper__aside__list-holder__list-items">Hat: Hood Hats </li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Rain Jacket: REI Drypoint GTX</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Shirt: Costco Active Tee</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Underwear: Fruit of the Loom CoolZone</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Pants: Outdoor Research Ferrosi</li> 
-        <li class="primary-wrapper__aside__list-holder__list-items">Socks: Darn Tough Hiker Full Cushion</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Boots: Salomon X Ultra Mid 3 GTX</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Sandals: Bedrock Cairn Adventure Sandals</li>
-        <li class="primary-wrapper__aside__list-holder__list-items">Go to the gear page for links!</li>
+            <li class="primary-wrapper__aside__list-holder__list-items" v-for="gear in gearItemList">{{gear}}</li>
+        <li class="primary-wrapper__aside__list-holder__list-items"></li>
         </ul>
+        
+        <h3 class="primary-wrapper__aside__gear-images__headline">{{imgHeader}}</h3>
+        <template v-if="randomNumber != 8">
+        <p class="primary-wrapper__aside__img-header">{{this.productData[randomNumber].itemData[0]}}</p>
+        <img class="primary-wrapper__aside__primary-image" v-bind:src="this.productData[randomNumber].itemData[1]" v-bind:id="imgIdentification" v-on:click="plusOne">
+        </template>
+        <template v-else>
+        <p>Refresh the page if you wish to cycle through the images again.</p>
+        </template>
+        </div>
         </aside>
         <main class="primary-wrapper__main">
         
         
         <div class="primary-wrappper__main__report-holder">
+            <div id="weekendConditional">
+            {{dateChecker()}}
+            <template v-if="dayOfTheWeek === 6|| dayOfTheWeek === 7">
+            <h2 class="primary-wrapper__main__report-holder__headline">{{text}}</h2>
+        </template>
+        </div>
         <h2 class="primary-wrapper__main__report-holder__headline">Trip Reports</h2>
         <p class="primary-wrapper__main__report-holder__date-line">05/09/2021</p>
-        <div class="primary-wrapper__main__report-holder__img-holder">
+        <div class="primary-wrapper__ main__report-holder__img-holder">
         <img class="primary-wrapper__main__report-holder__img-holder__hiking-img" src="images/may-valley.webp">
         </div>
         <p class="primary-wrapper__main__report-holder__report-text">We hiked the May Valley Loop this Sunday. Or, at least, we tried to. The signage was not good and my brother and I were never really sure if we were on the right trail. We turned around before the top, due to an unforseen need for the bathroom. It was a total of about 6 miles, 1600 ft up. The trail was muddy in spots, but I still had fun. I chose to use my sandals for this trip, which was the first time I took them on an actual hike. It was not an issue at all, and I will take them on a harder trail. We actually decided to try this particular trail again because of the bathroom issue and the nice feel of the place. It wasn't very crowded, although the lot required a $10 fee which is atypical. It was a good hike, and I wish we had a chance to complete it. There were two primary destinations - a nice peak, or an old stone fireplace (the Bullit Fireplace). We decided we wanted to see the fireplace. We may have been close, but given our confusion its hard to really know. 
@@ -81,5 +92,85 @@
 
         </ul>
     </footer>
+    <script type=text/javascript>
+          const asideGenerator = {
+          data() {
+            return {
+              listHeader:"Gear List",  
+              gearItemList:["Hat: Hood Hats","Rain Jacket: REI Drypoint GTX","Shirt: Costco Active Tee","Underwear: Fruit of the Loom CoolZone","Pants: Outdoor Research Ferrosi","Socks: Darn Tough Hiker Full Cushion","Boots: Salomon X Ultra Mid 3 GTX","Sandals: Bedrock Cairn Adventure Sandals","Go to the gear page for more information! Click below to cycle through images."],
+              name:"dan",
+              imgIdentification:"aside-img",
+              imgHeader:"Gear Images",
+              imgSrc:["./images/hood-hat.jpg","./images/drypoint-gtx"],
+              randomNumber:0,
+              productData: [
+                   {
+                   name: "Hat",
+                   itemData: ["Hood Hats","./images/hood-hat.jpg"]
+                   },
+                   {
+                   name:"Jacket",
+                   itemData: ["DryPoint GTX","./images/drypoint-gtx.jpg"]
+                   },
+                   {
+                   name:"Shirt",
+                   itemData: ["Active Tee","./images/active-tee.jpeg"]
+                   },
+                   {
+                   name:"Underwear",
+                   itemData: ["Fruit of the Loom CoolZone","./images/boxer-briefs.jpeg"]
+                   },
+                   {
+                   name:"Pants",
+                   itemData: ["Outdoor Research Ferrosi","./images/ferrosi.jpeg"]
+                   },
+                   {
+                   name:"Socks",
+                   itemData: ["Darn Tough Full Cushion","./images/darn-tough.jpg"]
+                   },
+                   {
+                   name:"Boots",
+                   itemData: ["Ultra Mid 3 GTX","./images/ultra-mid.jpeg"]
+                   },
+                   {
+                   name:"Sandals",
+                   itemData: ["Cairn Bedrock Sandals","./images/cairn-sandals.jpeg"]
+                   },
+                   {
+                   name:"",
+                   itemData: ["None","None"]
+                   }
+                 ]
+
+            }
+          },
+          methods: {
+              plusOne() {
+                    this.randomNumber += 1
+
+              }//random number generator
+
+
+          }//method end
+        }
+        const weekendConditional = {
+          data() {
+            return {
+                text:"Its the weekend! Hopefully I'm out hiking. Check for a blog post!",
+                dayOfTheWeek: this.dateChecker()
+            }
+          },
+          methods: {
+              dateChecker() {
+                let newDate = new Date()
+                return newDate.getDay()
+              }
+          }
+        }
+        Vue.createApp(asideGenerator).mount('#asideGenerator')
+        Vue.createApp(weekendConditional).mount('#weekendConditional')
+    
+    
+    </script>
     </body>
 </html>

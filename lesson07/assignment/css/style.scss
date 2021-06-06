@@ -103,6 +103,11 @@ body {
                 padding-bottom:.25rem;
             }
         }
+      &__gear-images {
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+      }
     }
     &__main {
         grid-column:5/11;
@@ -115,6 +120,12 @@ body {
                 display:flex;
                 justify-content:center;
                 color:white;
+                &__weekend-conditonal {
+                    display:flex;
+                    justify-content:center;
+                    color:white;
+                    font-size:2rem;
+                }
             }
         &__date-line {
             color:white;
@@ -133,6 +144,10 @@ body {
         }
         }
     }
+}
+#aside-img {
+    height:13rem;
+
 }
 
 
@@ -194,17 +209,22 @@ body {
         }
         .primary-wrapper {
             &__main {
-                grid-column:5/9;
+                grid-column:2/12;
                 &__report-holder {
                     &__img-holder {
                         &__hiking-img {
-                            width:30rem;
+                            width:38rem;
                         }
                     }
                 }
             }
+            &__aside {
+                display:none;
+            }
         }
+      
 }
+
 @media (max-width:$phone-size) {
     .primary-nav {
         display:none;
